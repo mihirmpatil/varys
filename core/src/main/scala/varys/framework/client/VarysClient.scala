@@ -113,7 +113,7 @@ class VarysClient(
         logInfo("Registered to master in " +  (now - regStartTime) + 
           " milliseconds. Local slave url = " + slaveUrl)
         
-        // Thread to periodically uodate the rates of all existing ThrottledInputStreams
+        // Thread to periodically update the rates of all existing ThrottledInputStreams
         context.system.scheduler.schedule(0 millis, RATE_UPDATE_FREQ millis) {
           flowToBitPerSec.synchronized {
             flowToBitPerSec.foreach { kv => {
